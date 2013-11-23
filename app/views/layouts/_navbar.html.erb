@@ -1,0 +1,51 @@
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <% unless user_signed_in?%>
+      <div class="navbar-content">
+        <a class="brand" href="/">Featyre </a>
+        <form class="navbar-search">
+          <input type="text" class="search-query" placeholder="Search..."> 
+        </form>
+        <ul class="nav">
+          <li>
+          <a href="#">Explore</a> 
+          </li>
+          <li>
+          <a href="#">About</a> 
+          </li>
+        </ul>
+        <ul class="nav" id="userlinks" style="float: right">
+          <li>
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </li>
+          <li>
+          <%= link_to "Login", new_user_session_path %>
+          </li>
+        </ul>
+      </div>
+      <% else %>
+        
+        <div class="navbar-content">
+        <a class="brand" href="/">F </a>
+          <form class="navbar-search">
+            <input type="text" class="search-query" placeholder="Search..."> 
+          </form>
+          <ul class="nav">
+            <li>
+            <a href="#">settings</a> 
+            </li>
+          </ul>
+          <ul id="user-links" class="navbar pull-right">
+            <div class="user-links"> 
+              <%= image_tag current_user.avatar_url, size: "30x30"%>
+              <%= current_user.name %>
+            </div>
+            <a class="btn-auth btn-<%="#{current_user.provider}"%>" a href="/users/logout" data-method="delete" rel="nofollow">logout</a>
+          </ul>
+        </div> <!-- navbar-content  -->
+      <% end %>
+    </div> <!-- container  -->
+  </div> <!-- navbar-inner  -->
+</div> <!-- navbar-fixed-top  -->
+

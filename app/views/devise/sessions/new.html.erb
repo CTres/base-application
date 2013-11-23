@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="span4 offset4 form-user">
+        <h4 class="heading"> Sign In </h4>
+        <div class="options">
+          <a class="btn-auth btn-github large" a href="/users/auth/github"> Sign in with <b>github</b> </a>
+          </div>
+          <div class="options">
+        <a class="btn-auth btn-google_oauth2 large" a href="/users/auth/google_oauth2"> Sign in with <b>gmail</b> </a>
+        </div>
+        <legend> or </legend>
+        <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+          <div class="form-inputs">
+           <%= f.input :email, autofocus: true, required: true, label: false, placeholder: 'Email' %>
+           <%= f.input :password, required: true, label: false, placeholder: 'Password' %>
+           <%= f.button :submit, "Sign in", class: 'btn.btn-large btn-primary', id: 'create_btn' %>
+          </div>
+        <% end %>
+        <hr>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
